@@ -92,6 +92,14 @@
 \begin{itemize} \itemsep 0pt \parskip 0pt \parsep 1pt}
 {\end{itemize}\vspace{-.5em}}
 
+% remove chapter header
+\addtopsmarks{headings}{}{
+  \createmark{chapter}{left}{nonumber}{}{}
+  \createmark{chapter}{right}{nonumber}{}{}
+}
+\pagestyle{headings} % activate changes
+
+
 % NO PAGE NUMBER
 \pagenumbering{gobble}
 
