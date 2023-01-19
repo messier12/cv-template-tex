@@ -1,0 +1,87 @@
+\documentclass[11pt]{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[nopar]{lipsum}
+\usepackage{titlesec}
+\usepackage{messier12cv}
+
+% Input basic information here
+\author{Reanu John Keeves} % name
+\def\phone{+69999-9999-9999} % phone number
+\def\email{example@example.com} % email
+\def\website{messier12.github.io} % your website
+
+\renewcommand\familydefault{\sfdefault}
+
+\begin{document}
+  \input{\_header\_.tex}
+  \vspace{-2ex}
+
+  Insert summary here. \lipsum[1][1-5]
+
+  \chapter{Experience}
+    \section{Company Name}
+      \begin{itshape}
+        Company Description \lipsum[1][1]
+      \end{itshape}
+
+      \subsectionwithnote{Position}{Jan 2014 - present}
+        Insert position description. \lipsum[2][1-3]
+
+        \subsubsection{Accomplishment}
+          \begin{m12itemize}
+            \item \lipsum[3][1]
+            \item \lipsum[3][2]
+            \item \lipsum[3][3]
+          \end{m12itemize}
+        
+        \subsubsection{Technology Stack}
+          \begin{tabular}{>{\upshape}l>{\hspace{1ex}} l}
+            Languages&: C/C++, Java\\
+            Libraries&: Boost\\
+            Hardwares&: STM32F9\\
+          \end{tabular}
+    
+      \subsectionwithnote{Previous Position}{Apr 2010 - Jan 2014}
+        \lipsum[3][1-4]
+        \subsubsection{Accomplishment}
+          \begin{m12itemize}
+            \item \lipsum[3][1]
+            \item \lipsum[3][2]
+            \item \lipsum[3][3]
+          \end{m12itemize}
+    \section{Company2}
+      \textit{\lipsum[3][2]} % replace with company description
+      \subsectionwithnote{Position}{Apr 2009 - Mar 2010}
+      \lipsum[4][1-5]
+    
+  \chapter{Education}
+    \section{Wick University}
+      \begin{itshape}
+        Doctorate, Computer Engineering \hfill Graduated Jun 2009
+      \end{itshape}
+    \section{John Institute of Technology}
+      \begin{itshape}
+        Master in Robotics Engineering \hfill Graduated Jun 2005\\
+        Bachelor in Computer Science \hfill Graduated Jun 2003
+      \end{itshape}
+
+  \chapter{Other Skills}
+
+    \centering
+    \bfseries
+    \begin{tabularx}{0.9\textwidth}{
+    >{\raggedright\arraybackslash}X 
+    >{\centering\arraybackslash}X 
+    >{\raggedleft\arraybackslash}X}
+      
+      C & C++ & Python\\
+      Redis & MongoDB & Javascript\\
+      Golfing & Swimming & Dying\\
+    \end{tabularx}
+   
+    
+\end{document}

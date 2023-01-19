@@ -1,0 +1,105 @@
+\ProvidesPackage{messier12cv}
+
+\RequirePackage[a4paper,top=0.75in,left=0.75in,right=0.75in,bottom=0.75in]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[12pt]{moresize}
+\usepackage{anyfontsize}
+
+
+\RequirePackage[hidelinks]{hyperref}
+\hypersetup{colorlinks=false}
+
+\RequirePackage[inline]{enumitem}
+\setlength{\tabcolsep}{0in}
+
+% no new page in \chapter
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+\let\clearforchapter\relax
+
+% SECTIONS FORMATTING
+\RequirePackage{titlesec}
+
+% setting the double line in chapter
+\titlespacing*{\chapter}{0em}{0em}{1ex} 
+\titleformat{\chapter}[display]{\large\bfseries}{}{0em}
+{ \vspace{-2ex}\rule{\textwidth}{1pt}
+  \centering}
+[\vspace{-1ex}\rule{\textwidth}{1pt}]
+
+% setting the spacing for each section titles
+\titlespacing*{\section}{0em}{1ex}{0em} % gets rid of space before/after lines
+\titleformat{\section}{\bfseries}{}{0em}{}[] % gets rid of section numbering
+
+\titlespacing*{\subsection}{\leftmargin}{.5ex}{0em} % gets rid of space before/after lines
+\titleformat{\subsection}{\bfseries}{}{0em}{}[] % gets rid of section numbering
+
+\titlespacing*{\subsubsection}{\leftmargin}{0em}{0em} % gets rid of space before/after lines
+\titleformat{\subsubsection}{\bfseries}{}{0em}{}[] % gets rid of section numbering
+
+\titlespacing*{\subsubsubsection}{\leftmargin}{0em}{0em} % gets rid of space before/after lines
+\titleformat{\subsubsubsection}{\bfseries}{}{0em}{}[] % gets rid of section numbering
+
+% indentation for section depth
+\setlength{\parindent}{0em}
+\makeatletter
+\let\xsection\section
+\def\section{\par
+  \leftmargin0\p@
+  \leftskip\leftmargin
+  \@totalleftmargin\leftmargin\linewidth\textwidth
+  \xsection}
+\let\xsubsection\subsection
+\def\subsection{\par
+  \leftmargin10\p@
+  \leftskip\leftmargin
+  \@totalleftmargin\leftmargin\linewidth\dimexpr\textwidth-\leftmargin\relax
+  \xsubsection}
+\let\xsubsubsection\subsubsection
+\def\subsubsection{\par
+  \leftmargin20\p@
+  \leftskip\leftmargin
+  \@totalleftmargin\leftmargin\linewidth\dimexpr\textwidth-\leftmargin\relax
+  \xsubsubsection}
+
+
+
+% formating the list
+\RequirePackage{enumitem}
+\newenvironment{m12itemize}
+{
+  \begin{itemize}[label=\raisebox{.2ex}{\large$\bullet$}]
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}
+
+}
+{
+  \end{itemize}
+  \vspace{-\baselineskip}
+  \vspace{1pt}
+}
+
+% created command for sections with note on right side
+\newcommand{\subsectionwithnote}[2]{\subsection{#1\hfill \itshape\textmd{#2}}}
+\newcommand{\sectionwithnote}[2]{\section{#1\hfill \itshape\textmd{#2}}}
+
+% tighter spacing than itemize
+\setlist[itemize]{align=parleft,left=0pt..1em}
+\newenvironment{zitemize}{
+\begin{itemize} \itemsep 0pt \parskip 0pt \parsep 1pt}
+{\end{itemize}\vspace{-.5em}}
+
+% NO PAGE NUMBER
+\pagenumbering{gobble}
+
+% SUBFILES IMPORTING
+\RequirePackage{standalone}
+\RequirePackage{import}
+
+% FOR TEMPLATE FILLER
+\RequirePackage[english]{babel}
+\RequirePackage{blindtext}% Filler Text
+
